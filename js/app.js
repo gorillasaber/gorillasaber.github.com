@@ -1,3 +1,9 @@
+const PROXY = "https://ТВІЙ-ВОРКЕР.partymonkervgt.workers.dev";
+
+function proxyFetch(targetUrl) {
+  const encoded = encodeURIComponent(targetUrl);
+  return fetch(`${PROXY}?url=${encoded}`);
+}
 // ===== i18n =====
 const translations = {
   en: {
@@ -423,4 +429,16 @@ if (registerForm) {
       regResult.style.display = "none";
     }
   });
+}
+const rankedScores = blScores.data.filter(s => {
+  const entry = rankedData.find(x => x.hash.toLowerCase() === s.leaderboard.songHash.toLowerCase());
+  if (!entry) return false;
+  s.weight = entry.sppWeight || 1.0;
+  return true;
+});
+
+let blPP = 0;
+if (rankedScores.length > 0) {
+  const total = rankedScores.reduce((a, s) => a + s.pp * s.weight, 0);
+  blPP = total / rankedScores.length;
 }
