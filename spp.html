@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Gorilla Saber – SPP Bot</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header>
+  <h1 data-i18n="site_title">Gorilla Saber 🦍</h1>
+  <nav>
+    <a href="index.html" data-i18n="nav_home">Home</a>
+    <a href="spp.html" data-i18n="nav_spp">SPP Bot</a>
+    <a href="leaderboard.html" data-i18n="nav_leaderboard">Global Ranking</a>
+    <a href="ranked.html" data-i18n="nav_ranked">Ranked Maps</a>
+    <a href="register.html" data-i18n="nav_register">Register</a>
+  </nav>
+  <div id="langSwitch">
+    <button data-lang="en">EN</button>
+    <button data-lang="uk">UA</button>
+  </div>
+</header>
+
+<main>
+  <section id="spp-bot">
+    <h2 data-i18n="spp_title">SPP Bot</h2>
+    <form id="sppForm">
+      <label for="blUrl" data-i18n="spp_label_bl">BeatLeader profile:</label>
+      <input type="url" id="blUrl"
+             placeholder="https://www.beatleader.com/u/12345" required>
+
+      <label for="ssUrl" data-i18n="spp_label_ss">ScoreSaber profile:</label>
+      <input type="url" id="ssUrl"
+             placeholder="https://scoresaber.com/u/7654321" required>
+
+      <button type="submit" data-i18n="spp_button">Count SPP</button>
+    </form>
+
+    <div id="sppResult" class="card"></div>
+  </section>
+</main>
+
+<footer>
+  <small data-i18n="footer_text">Gorilla Saber fan project • Shiny PP</small>
+</footer>
+
+<script src="js/app.js"></script>
+</body>
+</html>

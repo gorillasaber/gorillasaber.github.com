@@ -14,30 +14,69 @@ body {
 }
 
 header {
-  padding: 16px 24px;
+  padding: 12px 20px;
   border-bottom: 1px solid #333;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 16px;
+}
+
+header h1 {
+  font-size: 20px;
+}
+
+nav {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
 nav a {
-  margin-left: 12px;
   color: #9be37f;
   text-decoration: none;
+  font-size: 14px;
 }
 
 nav a:hover {
   text-decoration: underline;
 }
 
+#langSwitch {
+  display: flex;
+  gap: 4px;
+}
+
+#langSwitch button {
+  padding: 4px 8px;
+  border-radius: 4px;
+  border: 1px solid #333;
+  background: #181818;
+  color: #eee;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+#langSwitch button:hover {
+  filter: brightness(1.1);
+}
+
 main {
-  padding: 24px;
+  padding: 20px;
   flex: 1;
 }
 
-h1, h2 {
-  margin-bottom: 16px;
+h2 {
+  margin-bottom: 10px;
+}
+
+p, li {
+  font-size: 14px;
+}
+
+ul {
+  margin-left: 18px;
+  margin-top: 4px;
 }
 
 form {
@@ -45,6 +84,7 @@ form {
   flex-direction: column;
   gap: 8px;
   max-width: 420px;
+  margin-top: 8px;
 }
 
 input {
@@ -56,7 +96,7 @@ input {
 }
 
 button {
-  margin-top: 8px;
+  margin-top: 6px;
   padding: 8px 12px;
   border: none;
   border-radius: 4px;
@@ -64,6 +104,7 @@ button {
   color: #111;
   cursor: pointer;
   font-weight: 600;
+  font-size: 14px;
 }
 
 button:hover {
@@ -71,24 +112,29 @@ button:hover {
 }
 
 .card {
-  margin-top: 16px;
-  padding: 12px;
+  margin-top: 10px;
+  padding: 10px;
   border-radius: 6px;
   background: #181818;
   border: 1px solid #333;
+  font-size: 14px;
 }
 
 table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 12px;
+  margin-top: 10px;
+  font-size: 13px;
 }
 
 th, td {
   padding: 6px 8px;
   border-bottom: 1px solid #333;
   text-align: left;
-  font-size: 14px;
+}
+
+th {
+  font-weight: 600;
 }
 
 footer {
@@ -97,4 +143,43 @@ footer {
   font-size: 12px;
   text-align: center;
   color: #aaa;
+}
+
+/* Downloads */
+.download-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.btn-download {
+  display: inline-block;
+  padding: 8px 12px;
+  border-radius: 4px;
+  background: #222;
+  border: 1px solid #444;
+  color: #eee;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.btn-download:hover {
+  border-color: #9be37f;
+}
+
+/* Pager */
+.pager {
+  margin-top: 10px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+/* Small screens */
+@media (max-width: 700px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }

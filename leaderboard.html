@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Gorilla Saber – Global Ranking</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header>
+  <h1 data-i18n="lb_title">Gorilla Saber – Global SPP Ranking</h1>
+  <nav>
+    <a href="index.html" data-i18n="nav_home">Home</a>
+    <a href="spp.html" data-i18n="nav_spp">SPP Bot</a>
+    <a href="leaderboard.html" data-i18n="nav_leaderboard">Global Ranking</a>
+    <a href="ranked.html" data-i18n="nav_ranked">Ranked Maps</a>
+    <a href="register.html" data-i18n="nav_register">Register</a>
+  </nav>
+  <div id="langSwitch">
+    <button data-lang="en">EN</button>
+    <button data-lang="uk">UA</button>
+  </div>
+</header>
+
+<main>
+  <section id="global-ranking">
+    <h2 data-i18n="lb_h2">World SPP Ranking</h2>
+    <table>
+      <thead>
+        <tr>
+          <th data-i18n="lb_th_rank">#</th>
+          <th data-i18n="lb_th_player">Player</th>
+          <th data-i18n="lb_th_country">Country</th>
+          <th data-i18n="lb_th_spp">SPP</th>
+          <th data-i18n="lb_th_bl">BL</th>
+          <th data-i18n="lb_th_ss">SS</th>
+        </tr>
+      </thead>
+      <tbody id="playersTableBody">
+        <tr><td colspan="6" data-i18n="lb_loading">Loading...</td></tr>
+      </tbody>
+    </table>
+
+    <div id="pager" class="pager">
+      <button id="prevPage" data-i18n="lb_prev">Prev</button>
+      <span id="pageInfo"></span>
+      <button id="nextPage" data-i18n="lb_next">Next</button>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <small data-i18n="footer_text">Gorilla Saber fan project • Shiny PP</small>
+</footer>
+
+<script src="js/app.js"></script>
+</body>
+</html>
