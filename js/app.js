@@ -1,4 +1,4 @@
-const PROXY = "https://ТВІЙ-ВОРКЕР.partymonkervgt.workers.dev";
+const PROXY = "https://gs-proxy.partymonkevrgt.workers.dev";
 
 function proxyFetch(targetUrl) {
   const encoded = encodeURIComponent(targetUrl);
@@ -203,14 +203,16 @@ function extractScoreSaberId(url) {
 }
 
 async function fetchBLpp(blId) {
-  const res = await fetch(`${API_BL}/player/${blId}`);
+  const url = `${API_BL}/player/${blId}`;
+  const res = await proxyFetch(url);
   if (!res.ok) throw new Error("BL API error");
   const data = await res.json();
   return data.pp ?? data.rankPp ?? 0;
 }
 
 async function fetchSSpp(ssId) {
-  const res = await fetch(`${API_SS}/player/${ssId}/full`);
+  const url = `${API_SS}/player/${ssId}/full`;
+  const res = await proxyFetch(url);
   if (!res.ok) throw new Error("SS API error");
   const data = await res.json();
   return data.pp ?? data.playerInfo?.pp ?? 0;
