@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <title>Gorilla Saber</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <h1>Gorilla Saber 🦍</h1>
+    <nav>
+      <a href="index.html">SPP Bot</a>
+      <a href="ranked.html">Ranked Maps</a>
+      <!-- потім додаси ще -->
+    </nav>
+  </header>
+
+  <main>
+    <section id="spp-bot">
+      <h2>SPP Bot</h2>
+      <form id="sppForm">
+        <label>BeatLeader profile:</label>
+        <input type="url" id="blUrl" placeholder="https://www.beatleader.com/u/12345" required>
+
+        <label>ScoreSaber profile:</label>
+        <input type="url" id="ssUrl" placeholder="https://scoresaber.com/u/7654321" required>
+
+        <button type="submit">Count SPP</button>
+      </form>
+
+      <div id="sppResult"></div>
+    </section>
+  </main>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
