@@ -1,39 +1,52 @@
 <!doctype html>
-<html lang="uk">
+<html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Gorilla Saber</title>
+  <title data-i18n="rk_title">Gorilla Saber – Ranked Maps</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <header>
-    <h1>Gorilla Saber - Ranked Maps</h1>
-    <nav>
-      <a href="index.html">SPP Bot</a>
-      <a href="ranked.html">Ranked Maps</a>
-    </nav>
-  </header>
+<header>
+  <h1 data-i18n="rk_header">Gorilla Saber – Ranked Maps</h1>
+  <nav>
+    <a href="index.html" data-i18n="nav_home">Home</a>
+    <a href="spp.html" data-i18n="nav_spp">SPP Bot</a>
+    <a href="leaderboard.html" data-i18n="nav_leaderboard">Global Ranking</a>
+    <a href="ranked.html" data-i18n="nav_ranked">Ranked Maps</a>
+    <a href="register.html" data-i18n="nav_register">Register</a>
+  </nav>
+  <div id="langSwitch">
+    <button data-lang="en">EN</button>
+    <button data-lang="uk">UA</button>
+  </div>
+</header>
 
-  <main>
-    <section id="ranked-maps">
-      <h2>Ranked Maps</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Назва</th>
-            <th>Mapper</th>
-            <th>Diff</th>
-            <th>Stars</th>
-            <th>Pass</th>
-            <th>Acc</th>
-            <th>Tech</th>
-          </tr>
-        </thead>
-        <tbody id="rankedTableBody"></tbody>
-      </table>
-    </section>
-  </main>
+<main>
+  <section id="ranked-maps">
+    <h2 data-i18n="rk_h2">Ranked maps</h2>
+    <table>
+      <thead>
+        <tr>
+          <th data-i18n="rk_th_name">Name</th>
+          <th data-i18n="rk_th_mapper">Mapper</th>
+          <th data-i18n="rk_th_diff">Diff</th>
+          <th data-i18n="rk_th_stars">⭐</th>
+          <th data-i18n="rk_th_pass">Pass ⭐</th>
+          <th data-i18n="rk_th_acc">Acc ⭐</th>
+          <th data-i18n="rk_th_tech">Tech ⭐</th>
+        </tr>
+      </thead>
+      <tbody id="rankedTableBody">
+        <tr><td colspan="7" data-i18n="rk_loading">Loading...</td></tr>
+      </tbody>
+    </table>
+  </section>
+</main>
 
-  <script src="js/app.js"></script>
+<footer>
+  <small data-i18n="footer_text">Gorilla Saber fan project • Shiny PP</small>
+</footer>
+
+<script src="js/app.js"></script>
 </body>
 </html>

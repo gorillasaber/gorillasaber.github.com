@@ -1,15 +1,15 @@
 [
   {
-    "beatSaverKey": "",
-    "hash": "",
+    "beatSaverKey": "20b5d",
+    "hash": "SGL Galaxy",
     "mode": "Standard",
-    "difficulty": "",
-    "name": "",
-    "mapper": "",
-    "stars": 1,
-    "passStars": 1,
-    "accStars": 1,
-    "techStars": 1,
+    "difficulty": "Hard",
+    "name": "Monke Need To Swing (Gorilla Tag Original Soundtrack)",
+    "mapper": "SGL Galaxy",
+    "stars": 4.58,
+    "passStars": 2.13,
+    "accStars": 1.06,
+    "techStars": 2.13,
     "sppWeight": 1,
     "ranked": true
   }
