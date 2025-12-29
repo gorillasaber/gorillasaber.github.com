@@ -4,7 +4,6 @@ function proxyFetch(targetUrl) {
   const encoded = encodeURIComponent(targetUrl);
   return fetch(`${PROXY}?url=${encoded}`);
 }
-// ===== i18n =====
 const translations = {
   en: {
     site_title: "Gorilla Saber 🦍",
@@ -188,7 +187,6 @@ if (langSwitch) {
 
 applyTranslations();
 
-// ===== API & SPP Bot core =====
 const API_BL = "https://api.beatleader.com";
 const API_SS = "https://scoresaber.com/api";
 
@@ -229,37 +227,30 @@ async function runSppBot(blUrl, ssUrl) {
   const ssId = extractScoreSaberId(ssUrl);
   if (!blId || !ssId) throw new Error("Bad profile URLs");
 
-  // 1️⃣ завантажуємо список ранкнутих карт
   const rankedData = await fetch("data/ranked-maps.json").then(r => r.json());
   const rankedHashes = rankedData.map(x => x.hash.toLowerCase());
 
-  // 2️⃣ отримуємо всі скорі з BeatLeader
   const blScoresRes = await fetch(`https://api.beatleader.com/player/${blId}/scores?sortBy=pp&page=1&count=1000`);
   const blScores = await blScoresRes.json();
 
-  // фільтруємо тільки ті, що є у ранкнутому json
   const rankedScores = blScores.data.filter(s => rankedHashes.includes(s.leaderboard.songHash.toLowerCase()));
 
-  // беремо сумарний PP або середній
   let blPP = 0;
   if (rankedScores.length > 0) {
     const sumPP = rankedScores.reduce((a, s) => a + s.pp, 0);
     blPP = sumPP / rankedScores.length;
   }
 
-  // 3️⃣ ScoreSaber — просто беремо PP, поки без фільтра (можна додати пізніше)
   const ssRes = await fetch(`https://scoresaber.com/api/player/${ssId}/full`);
   const ssData = await ssRes.json();
   const ssPP = ssData.pp ?? ssData.playerInfo?.pp ?? 0;
 
-  // 4️⃣ комбінуємо у SPP (50/50)
   const spp = calcSPP(blPP, ssPP);
 
   return { blPP, ssPP, spp };
 }
 
 
-// ===== SPP Bot page =====
 const sppForm = document.getElementById("sppForm");
 if (sppForm) {
   sppForm.addEventListener("submit", async (e) => {
@@ -282,7 +273,6 @@ if (sppForm) {
   });
 }
 
-// ===== Ranked maps page =====
 const rankedTableBody = document.getElementById("rankedTableBody");
 if (rankedTableBody) {
   fetch("data/ranked-maps.json")
@@ -319,7 +309,6 @@ if (rankedTableBody) {
     });
 }
 
-// ===== Global ranking + pagination =====
 const playersTableBody = document.getElementById("playersTableBody");
 if (playersTableBody) {
   const PAGE_SIZE = 100;
@@ -393,7 +382,6 @@ if (playersTableBody) {
   }
 }
 
-// ===== Register page =====
 const registerForm = document.getElementById("registerForm");
 if (registerForm) {
   const regStatus = document.getElementById("regStatus");
