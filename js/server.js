@@ -21,7 +21,7 @@ app.get("/auth/discord/start", (req, res) => {
   const state = randomState();
   req.session.oauth_state = state;
 
-  const scope = ["identify", "email"]; // якщо не хочеш email — прибери
+  const scope = ["identify", "email"];
   const params = new URLSearchParams({
     client_id: process.env.DISCORD_CLIENT_ID,
     redirect_uri: process.env.DISCORD_REDIRECT_URI,
@@ -40,7 +40,6 @@ app.get("/auth/discord/callback", async (req, res) => {
   if (!code || !state) return res.status(400).send("Missing code/state");
   if (state !== req.session.oauth_state) return res.status(400).send("Bad state");
 
-  // 1) міняємо code -> access_token
   const tokenRes = await fetch("https://discord.com/api/oauth2/token", {
     method: "POST",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -58,7 +57,7 @@ app.get("/auth/discord/callback", async (req, res) => {
     return res.status(400).send(`Token exchange failed: ${txt}`);
   }
 
-  const tokenJson = await tokenRes.json(); // { access_token, token_type, expires_in, refresh_token?, scope }
+  const tokenJson = await tokenRes.json();
   const accessToken = tokenJson.access_token;
 
   // 2) беремо юзера
@@ -70,9 +69,8 @@ app.get("/auth/discord/callback", async (req, res) => {
     const txt = await userRes.text();
     return res.status(400).send(`User fetch failed: ${txt}`);
   }
-
-  const user = await userRes.json(); // id, username, discriminator, avatar, email?, verified?
-  // Тут зберігаєш user.id (discord_id) у своїй БД і створюєш сесію.
+  
+  const user = await userRes.json();
   req.session.user = { discord_id: user.id, username: user.username, email: user.email ?? null };
 
   res.send(`Logged in as ${user.username} (${user.id})`);
