@@ -1,3 +1,5 @@
 # Gorilla Saber!
 Both games - Beat Saber, and... Gorilla Tag!
-smth like hitbloq but it's not by hitbloq's or beatleader's open-source
+
+# Creators
+vanvani41 - Owner, Website, Mod (not ready rn) and everything else
