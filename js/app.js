@@ -55,6 +55,7 @@ const translations = {
     rk_header: "Gorilla Saber – Ranked Maps",
     rk_h2: "Ranked maps",
     rk_th_name: "Name",
+    rl_th_name: "!bsr",
     rk_th_mapper: "Mapper",
     rk_th_diff: "Diff",
     rk_th_stars: "⭐",
@@ -128,6 +129,7 @@ const translations = {
     rk_header: "Gorilla Saber – Ранкнуті мапи",
     rk_h2: "Ранкнуті мапи",
     rk_th_name: "Назва",
+    rk_th_bsr: "!bsr",
     rk_th_mapper: "Маппер",
     rk_th_diff: "Складність",
     rk_th_stars: "⭐",
@@ -293,6 +295,7 @@ if (rankedTableBody) {
         const tr = document.createElement("tr");
         tr.innerHTML = `
           <td>${m.name}</td>
+          <td>${m.bsr}</td>
           <td>${m.mapper}</td>
           <td>${m.mode} ${m.difficulty}</td>
           <td>${m.stars ?? ""}</td>
