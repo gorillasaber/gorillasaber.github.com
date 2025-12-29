@@ -12,15 +12,13 @@ const translations = {
     nav_leaderboard: "Global Ranking",
     nav_ranked: "Ranked Maps",
     nav_register: "Register",
+    nav_discordlogin: "Log In via Discord",
 
-    footer_text: "Gorilla Saber fan project • Shiny PP",
+    footer_text: "Gorilla Saber is a fan project • Almost 2026 • All rights is not reserved(",
 
     home_h2_title: "Welcome to Gorilla Saber",
     home_intro: "Fan-made ranking for Beat Saber. Shiny PP, custom ranked maps and global SPP leaderboard.",
-    home_news_title: "News / Social",
-    home_news_follow: "Follow Gorilla Saber:",
-    home_news_bsky: "Bluesky (soon)",
-    home_news_x: "X / Twitter (soon)",
+    home_news_title: "News",
     home_news_latest: "Latest info:",
     home_news_latest_text: "v0.6 alpha – site and SPP bot online. Ranked pool and mods are in progress.",
     home_downloads_title: "Downloads",
@@ -79,22 +77,20 @@ const translations = {
     reg_copy_info: "Copy this JSON into data/players.json (or send it to the admin)."
   },
 
-  uk: {
+  ua: {
     site_title: "Gorilla Saber 🦍",
     nav_home: "Головна",
     nav_spp: "SPP Бот",
     nav_leaderboard: "Глобальний рейтинг",
     nav_ranked: "Ранкнуті мапи",
     nav_register: "Реєстрація",
+    nav_discordlogin: "Увійти через Discord",
 
-    footer_text: "Gorilla Saber фан-проєкт • Shiny PP",
+    footer_text: "Gorilla Saber фан-проєкт • Майже 2026 • Усы права не захищені(",
 
     home_h2_title: "Ласкаво просимо до Gorilla Saber",
     home_intro: "Фанатський рейтинг для Beat Saber. Shiny PP, свій пул ranked карт та глобальний SPP рейтинг.",
-    home_news_title: "Новини / Соціалки",
-    home_news_follow: "Підпишись на Gorilla Saber:",
-    home_news_bsky: "Bluesky (скоро)",
-    home_news_x: "X / Twitter (скоро)",
+    home_news_title: "Новини",
     home_news_latest: "Остання інфа:",
     home_news_latest_text: "v0.6 alpha – сайт і SPP бот онлайн. Ranked pool та моди в розробці.",
     home_downloads_title: "Завантаження",
