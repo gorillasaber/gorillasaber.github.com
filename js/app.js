@@ -86,7 +86,7 @@ const translations = {
     nav_register: "Реєстрація",
     nav_discordlogin: "Увійти через Discord",
 
-    footer_text: "Gorilla Saber фан-проєкт • Майже 2026 • Усы права не захищені(",
+    footer_text: "Gorilla Saber фан-проєкт • Майже 2026 • Усі права не захищені(",
 
     home_h2_title: "Ласкаво просимо до Gorilla Saber",
     home_intro: "Фанатський рейтинг для Beat Saber. Shiny PP, свій пул ranked карт та глобальний SPP рейтинг.",
