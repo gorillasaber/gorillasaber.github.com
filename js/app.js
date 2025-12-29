@@ -7,6 +7,10 @@ function proxyFetch(targetUrl) {
 const translations = {
   en: {
     site_title: "Gorilla Saber 🦍",
+    site_title_sppbot: "Gorilla Saber 🦍 - SPP Bot",
+    site_title_leaderboard: "Gorilla Saber 🦍 - Leaderboard",
+    site_title_rankedmapslist: "Gorilla Saber 🦍 - Ranked Maps List",
+    site_title_register: "Gorilla Saber 🦍 - Register",
     nav_home: "Home",
     nav_spp: "SPP Bot",
     nav_leaderboard: "Global Ranking",
@@ -80,6 +84,10 @@ const translations = {
 
   ua: {
     site_title: "Gorilla Saber 🦍",
+    site_title_sppbot: "Gorilla Saber 🦍 - СПП Бот",
+    site_title_leaderboard: "Gorilla Saber 🦍 - Лідерборд",
+    site_title_rankedmapslist: "Gorilla Saber 🦍 - Список ранкованих мап",
+    site_title_register: "Gorilla Saber 🦍 - Реєстрація",
     nav_home: "Головна",
     nav_spp: "SPP Бот",
     nav_leaderboard: "Глобальний рейтинг",
