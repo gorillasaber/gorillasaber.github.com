@@ -53,7 +53,7 @@ const translations = {
     rk_header: "Gorilla Saber – Ranked Maps",
     rk_h2: "Ranked maps",
     rk_th_name: "Name",
-    rl_th_bsr: "!bsr",
+    rk_th_bsr: "!bsr",
     rk_th_mapper: "Mapper",
     rk_th_diff: "Diff",
     rk_th_stars: "⭐",
