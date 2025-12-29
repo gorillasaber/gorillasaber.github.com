@@ -17,6 +17,7 @@ const translations = {
     footer_text: "Gorilla Saber is a fan project • Almost 2026 • All rights is not reserved(",
 
     home_h2_title: "Welcome to Gorilla Saber",
+    home_h2_404: "Oops! There is no page like this one(",
     home_intro: "Fan-made ranking for Beat Saber. Shiny PP, custom ranked maps and global SPP leaderboard.",
     home_news_title: "News",
     home_news_latest: "Latest info:",
@@ -89,6 +90,7 @@ const translations = {
     footer_text: "Gorilla Saber фан-проєкт • Майже 2026 • Усі права не захищені(",
 
     home_h2_title: "Ласкаво просимо до Gorilla Saber",
+    home_h2_404: "Упс! Таких сторінок як цієї немає(",
     home_intro: "Фанатський рейтинг для Beat Saber. Shiny PP, свій пул ranked карт та глобальний SPP рейтинг.",
     home_news_title: "Новини",
     home_news_latest: "Остання інфа:",
