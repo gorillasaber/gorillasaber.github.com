@@ -9,16 +9,8 @@
     <p>Перекидаю в Discord…</p>
     <p>Transferring to Discord...</p>
     <script>
-      const clientId = "1455325991449657556";
-      const redirectUri = "http://localhost:3000/auth/discord/callback";
-      const scope = "identify email";
-      const params = new URLSearchParams({
-        client_id: clientId,
-        redirect_uri: redirectUri,
-        response_type: "code",
-        scope
-      });
-      window.location.href = `https://discord.com/oauth2/authorize?${params.toString()}`;
+      const redirectUri = "https://gorillasaber.github.io/auth/discord/callback/index.html";
+      window.location.href = `https://discord.com/oauth2/authorize?client_id=1455325991449657556&response_type=code&redirect_uri=https%3A%2F%2Fgorillasaber.github.io%2Fauth%2Fdiscord%2Fcallback&scope=identify+email`;
     </script>
   </body>
 </html>
