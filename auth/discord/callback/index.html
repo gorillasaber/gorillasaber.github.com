@@ -33,46 +33,33 @@
     </ol>
   </div>
 
-  <script>
-    const qs = new URLSearchParams(window.location.search);
+<script>
+  const params = new URLSearchParams(location.search);
+  const code = params.get("code");
 
-    const err = qs.get("error");
-    const code = qs.get("code");
-    const state = qs.get("state");
+  // URL твого воркера, наприклад:
+  const API = "https://YOUR-WORKER.your-subdomain.workers.dev";
 
-    const status = document.getElementById("status");
-    const codeEl = document.getElementById("code");
-    const stateEl = document.getElementById("state");
-    const copyBtn = document.getElementById("copyBtn");
+  async function doExchange() {
+    if (!code) return;
 
-    // Показуємо параметри
-    codeEl.textContent = code || "(нема)";
-    stateEl.textContent = state || "(нема)";
+    const r = await fetch(`${API}/discord/exchange?code=${encodeURIComponent(code)}`, {
+      credentials: "include"
+    });
 
-    if (err) {
-      const desc = qs.get("error_description") || "";
-      status.textContent = `Помилка від Discord: ${err} ${desc}`.trim();
-    } else if (!code) {
-      status.textContent = "Нема параметра code. Можливо ти відкрив сторінку напряму.";
+    const j = await r.json();
+    console.log(j);
+
+    if (r.ok && j.ok) {
+      // збережи користувача (не обов'язково) і вертайся на сайт
+      localStorage.setItem("me", JSON.stringify(j.me));
+      location.href = "/"; // або /ranked.html
     } else {
-      status.textContent = "Успіх. Code отримано. Наступний крок — відправити його на бекенд для обміну на токен.";
-      copyBtn.disabled = false;
+      document.body.insertAdjacentHTML("beforeend", `<pre>${JSON.stringify(j, null, 2)}</pre>`);
     }
+  }
 
-    copyBtn.addEventListener("click", async () => {
-      try {
-        await navigator.clipboard.writeText(code);
-        copyBtn.textContent = "Скопійовано";
-        setTimeout(() => (copyBtn.textContent = "Скопіювати code"), 1200);
-      } catch {
-        alert("Не вдалось скопіювати. Виділи code вручну.");
-      }
-    });
-
-    document.getElementById("backBtn").addEventListener("click", () => {
-      // повертаємось на головну
-      window.location.href = "/";
-    });
-  </script>
+  doExchange();
+</script>
 </body>
 </html>
