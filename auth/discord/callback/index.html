@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Discord Callback</title>
+  <style>
+    body { font-family: system-ui, Arial; padding: 24px; max-width: 900px; margin: 0 auto; }
+    .box { padding: 12px 14px; border: 1px solid #4443; border-radius: 10px; margin-top: 12px; }
+    code { word-break: break-all; }
+    button { padding: 8px 12px; border-radius: 8px; border: 1px solid #4445; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <h1>Discord Callback</h1>
+
+  <div id="status" class="box">Читаю параметри…</div>
+
+  <div class="box">
+    <div><b>code:</b> <code id="code">(нема)</code></div>
+    <div style="margin-top:8px;"><b>state:</b> <code id="state">(нема)</code></div>
+    <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap;">
+      <button id="copyBtn" disabled>Скопіювати code</button>
+      <button id="backBtn">Назад на сайт</button>
+    </div>
+  </div>
+
+  <div class="box">
+    <h3 style="margin-top:0;">Далі</h3>
+    <ol>
+      <li>Ця сторінка зараз тільки показує <code>code</code> (це нормально для тесту).</li>
+      <li>Для “норм логіну” треба бекенд, який обміняє <code>code</code> → <code>access_token</code> (client secret має бути тільки на сервері).</li>
+    </ol>
+  </div>
+
+  <script>
+    const qs = new URLSearchParams(window.location.search);
+
+    const err = qs.get("error");
+    const code = qs.get("code");
+    const state = qs.get("state");
+
+    const status = document.getElementById("status");
+    const codeEl = document.getElementById("code");
+    const stateEl = document.getElementById("state");
+    const copyBtn = document.getElementById("copyBtn");
+
+    // Показуємо параметри
+    codeEl.textContent = code || "(нема)";
+    stateEl.textContent = state || "(нема)";
+
+    if (err) {
+      const desc = qs.get("error_description") || "";
+      status.textContent = `Помилка від Discord: ${err} ${desc}`.trim();
+    } else if (!code) {
+      status.textContent = "Нема параметра code. Можливо ти відкрив сторінку напряму.";
+    } else {
+      status.textContent = "Успіх. Code отримано. Наступний крок — відправити його на бекенд для обміну на токен.";
+      copyBtn.disabled = false;
+    }
+
+    copyBtn.addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(code);
+        copyBtn.textContent = "Скопійовано";
+        setTimeout(() => (copyBtn.textContent = "Скопіювати code"), 1200);
+      } catch {
+        alert("Не вдалось скопіювати. Виділи code вручну.");
+      }
+    });
+
+    document.getElementById("backBtn").addEventListener("click", () => {
+      // повертаємось на головну
+      window.location.href = "/";
+    });
+  </script>
+</body>
+</html>
