@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Discord Login</title>
+  </head>
+  <body>
+    <p>Перекидаю в Discord…</p>
+    <p>Transferring to Discord...</p>
+    <script>
+      const clientId = "1455325991449657556";
+      const redirectUri = "http://localhost:3000/auth/discord/callback";
+      const scope = "identify email";
+      const params = new URLSearchParams({
+        client_id: clientId,
+        redirect_uri: redirectUri,
+        response_type: "code",
+        scope
+      });
+      window.location.href = `https://discord.com/oauth2/authorize?${params.toString()}`;
+    </script>
+  </body>
+</html>
