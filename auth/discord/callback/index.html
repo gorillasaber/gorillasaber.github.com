@@ -37,8 +37,7 @@
   const params = new URLSearchParams(location.search);
   const code = params.get("code");
 
-  // URL твого воркера, наприклад:
-  const API = "https://YOUR-WORKER.your-subdomain.workers.dev";
+  const API = "https://registration.gorillasaber.workers.dev";
 
   async function doExchange() {
     if (!code) return;
@@ -51,14 +50,12 @@
     console.log(j);
 
     if (r.ok && j.ok) {
-      // збережи користувача (не обов'язково) і вертайся на сайт
       localStorage.setItem("me", JSON.stringify(j.me));
-      location.href = "/"; // або /ranked.html
+      location.href = "/";
     } else {
       document.body.insertAdjacentHTML("beforeend", `<pre>${JSON.stringify(j, null, 2)}</pre>`);
     }
   }
-
   doExchange();
 </script>
 </body>
