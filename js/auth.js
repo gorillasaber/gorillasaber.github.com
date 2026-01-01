@@ -1,3 +1,4 @@
+console.log("auth.js loaded");
 export function getSession() {
   const raw = localStorage.getItem("gs_session");
   if (!raw) return null;
@@ -13,7 +14,6 @@ export function getSession() {
     return null;
   }
 }
-
 export function logout() {
   localStorage.removeItem("gs_session");
 }
