@@ -5,6 +5,9 @@
   <title data-i18n="site_title_register">Gorilla Saber 🦍 - Register</title>
   <link rel="stylesheet" href="css/style.css">
   <script src="js/snow.js" defer></script>
+  <script>  import { startDiscordLogin } from "/js/login.js";
+  document.getElementById("discordLoginBtn").addEventListener("click", startDiscordLogin);
+  </script>
 </head>
 <body>
 <canvas id="snowfall-element"></canvas>
@@ -16,7 +19,7 @@
     <a href="leaderboard.html" data-i18n="nav_leaderboard">Global Ranking</a>
     <a href="ranked.html" data-i18n="nav_ranked">Ranked Maps</a>
     <a href="register.html" data-i18n="nav_register">Register</a>
-    <a href="/auth/discord/index.html" data-i18n="nav_discordlogin">Log In via Discord</a>
+    <a href="/auth/discord/index.html" data-i18n="nav_discordlogin" id="discordLoginBtn">Log In via Discord</a>
   </nav>
   <div id="langSwitch">
     <button data-lang="en">EN</button>
