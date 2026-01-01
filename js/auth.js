@@ -1,4 +1,3 @@
-console.log("auth.js loaded");
 export function getSession() {
   const raw = localStorage.getItem("gs_session");
   if (!raw) return null;
