@@ -5,8 +5,10 @@
   <title data-i18n="site_title_rankedmapslist">Gorilla Saber 🦍 - Ranked Maps List</title>
   <link rel="stylesheet" href="css/style.css">
   <script src="js/snow.js" defer></script>
-  <script>  import { startDiscordLogin } from "/js/login.js";
-  document.getElementById("discordLoginBtn").addEventListener("click", startDiscordLogin);</script>
+  <script type="module">  
+  import { startDiscordLogin } from "/js/login.js";
+  document.getElementById("discordLoginBtn").addEventListener("click", startDiscordLogin);
+  </script>
 </head>
 <body>
 <canvas id="snowfall-element"></canvas>
