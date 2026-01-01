@@ -75,11 +75,12 @@ const translations = {
     reg_label_country: "Country (e.g. UA, PL, US):",
     reg_label_bl: "BeatLeader profile URL:",
     reg_label_ss: "ScoreSaber profile URL:",
-    reg_button: "Generate entry",
+    reg_button: "Register on GorillaSaber!",
     reg_status_wait: "Calculating SPP...",
     reg_status_error_prefix: "Error: ",
     reg_result_title: "Your players.json entry",
-    reg_copy_info: "Copy this JSON into data/players.json (or send it to the admin)."
+    reg_copy_info: "Copy this JSON into data/players.json (or send it to the admin).",
+    reg_or: "or"
   },
 
   ua: {
@@ -152,11 +153,12 @@ const translations = {
     reg_label_country: "Країна (наприклад UA, PL, US):",
     reg_label_bl: "URL профілю BeatLeader:",
     reg_label_ss: "URL профілю ScoreSaber:",
-    reg_button: "Згенерувати запис",
+    reg_button: "Зареєструватися на GorillaSaber!",
     reg_status_wait: "Рахую SPP...",
     reg_status_error_prefix: "Помилка: ",
     reg_result_title: "Твій запис для players.json",
-    reg_copy_info: "Скопіюй цей JSON у data/players.json (або відправ адміну)."
+    reg_copy_info: "Скопіюй цей JSON у data/players.json (або відправ адміну).",
+    reg_or: "або"
   }
 };
 
