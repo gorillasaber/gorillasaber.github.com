@@ -37,28 +37,48 @@
 
 <script>
 (async () => {
+  const WORKER_EXCHANGE_URL = "https://gorillasaber.partymonkevrgt.workers.dev/discord/exchange";
+  const REDIRECT_AFTER_LOGIN = "/register.html";
   const params = new URLSearchParams(location.search);
   const code = params.get("code");
   const state = params.get("state");
-  console.log("code:", code, "state:", state);
+  const err = params.get("error");
+  const statusEl = document.getElementById("status");
+  const setStatus = (t) => { if (statusEl) statusEl.textContent = t; };
+
+  if (err) {
+    setStatus("Помилка OAuth: " + err);
+    return;
+  }
   if (!code) {
+    setStatus("Немає параметра code в URL.");
     return;
   }
-  const WORKER_EXCHANGE_URL = "https://gorillasaber.partymonkevrgt.workers.dev/discord/exchange";
-  const r = await fetch(WORKER_EXCHANGE_URL, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ code }),
-  });
-  const data = await r.json();
-  console.log("exchange response:", data);
-  if (!r.ok || !data.ok) {
-    return;
+  setStatus("Є code. Міняю на токен через Worker...");
+  try {
+    const r = await fetch(WORKER_EXCHANGE_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ code, state })
+    });
+
+    const data = await r.json().catch(() => ({}));
+    if (!r.ok) {
+      setStatus("Exchange fail: " + (data.error || r.status));
+      console.log("Exchange response:", data);
+      return;
+    }
+    if (data.user) localStorage.setItem("discord_me", JSON.stringify(data.user));
+    if (data.access_token) localStorage.setItem("discord_token", data.access_token);
+    setStatus("Успіх. Повертаю на сайт...");
+    location.replace(REDIRECT_AFTER_LOGIN);
+    
+  } catch (e) {
+    setStatus("Fetch error: " + String(e));
+    console.error(e);
   }
-  localStorage.setItem("gs_user", JSON.stringify(data.user));
-  localStorage.setItem("gs_login_at", String(Date.now()));
-  location.href = "/";
 })();
 </script>
+
 </body>
 </html>
