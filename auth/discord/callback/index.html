@@ -35,74 +35,30 @@
 
 <pre id="out">Обробка...</pre>
 
-  <script>
-    const WORKER_EXCHANGE_URL = "https://gorillasaber.partymonkevrgt.workers.dev/discord/exchange";
-
-    function qs(name) {
-      return new URLSearchParams(window.location.search).get(name);
-    }
-
-    const code = new URLSearchParams(location.search).get("code");
-
-    const res = await fetch("https://gorillasaber.partymonkevrgt.workers.dev/discord/exchange", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ code }),
-    });
-    const data = await res.json();
-
-    async function run() {
-      const code = qs("code");
-      const state = qs("state");
-      const expectedState = sessionStorage.getItem("discord_oauth_state");
-
-      const out = document.getElementById("out");
-
-      if (!code) {
-        out.textContent = "Немає code в URL. Перевір redirect_uri та scope.";
-        return;
-      }
-
-      if (!state || !expectedState || state !== expectedState) {
-        out.textContent = "State не співпав. Спробуй залогінитися ще раз.";
-        return;
-      }
-
-      try {
-        const res = await fetch(WORKER_EXCHANGE_URL, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ code, state }),
-        });
-
-        const data = await res.json();
-        if (!res.ok) {
-          out.textContent = "Помилка exchange:\n" + JSON.stringify(data, null, 2);
-          return;
-        }
-
-        const expiresAt = Date.now() + (data.expires_in * 1000);
-        localStorage.setItem("gs_session", JSON.stringify({
-          access_token: data.access_token,
-          expires_at: expiresAt,
-          user: data.user,
-        }));
-
-        sessionStorage.removeItem("discord_oauth_state");
-
-        out.textContent = "Успіх. Логін збережено. Повертаю на сайт...";
-        setTimeout(() => {
-          window.location.href = "/";
-        }, 800);
-
-      } catch (e) {
-        out.textContent = "Fetch впав: " + String(e) + "\n\n" +
-          "Зазвичай це CORS або неправильний URL воркера.";
-      }
-    }
-
-    run();
-  </script>
-
+<script>
+(async () => {
+  const params = new URLSearchParams(location.search);
+  const code = params.get("code");
+  const state = params.get("state");
+  console.log("code:", code, "state:", state);
+  if (!code) {
+    return;
+  }
+  const WORKER_EXCHANGE_URL = "https://gorillasaber.partymonkevrgt.workers.dev/discord/exchange";
+  const r = await fetch(WORKER_EXCHANGE_URL, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ code }),
+  });
+  const data = await r.json();
+  console.log("exchange response:", data);
+  if (!r.ok || !data.ok) {
+    return;
+  }
+  localStorage.setItem("gs_user", JSON.stringify(data.user));
+  localStorage.setItem("gs_login_at", String(Date.now()));
+  location.href = "/";
+})();
+</script>
 </body>
 </html>
