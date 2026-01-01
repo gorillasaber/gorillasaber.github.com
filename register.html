@@ -9,6 +9,37 @@
   import { startDiscordLogin } from "/js/login.js";
   document.getElementById("discordLoginBtn").addEventListener("click", startDiscordLogin);
   </script>
+  <script>
+  const DISCORD_OAUTH_URL = "https://discord.com/oauth2/authorize?client_id=1455325991449657556&response_type=code&redirect_uri=https%3A%2F%2Fgorillasaber.github.io%2Fauth%2Fdiscord%2Fcallback&scope=identify+email";
+
+  const loginBtn = document.getElementById("discordLoginBtn");
+  const logoutBtn = document.getElementById("logoutBtn");
+  const meBox = document.getElementById("meBox");
+
+  function render() {
+    const meRaw = localStorage.getItem("discord_me");
+    if (!meRaw) {
+      loginBtn.style.display = "";
+      logoutBtn.style.display = "none";
+      meBox.textContent = "Не залогінений";
+      loginBtn.href = DISCORD_OAUTH_URL;
+      return;
+    }
+
+    const me = JSON.parse(meRaw);
+    loginBtn.style.display = "none";
+    logoutBtn.style.display = "";
+    meBox.textContent = `Залогінений як: ${me.username}#${me.discriminator} (id: ${me.id})`;
+  }
+
+  logoutBtn.addEventListener("click", () => {
+    localStorage.removeItem("discord_me");
+    localStorage.removeItem("discord_token");
+    render();
+  });
+
+  render();
+</script>
 </head>
 <body>
 <canvas id="snowfall-element"></canvas>
@@ -20,7 +51,6 @@
     <a href="leaderboard.html" data-i18n="nav_leaderboard">Global Ranking</a>
     <a href="ranked.html" data-i18n="nav_ranked">Ranked Maps</a>
     <a href="register.html" data-i18n="nav_register">Register</a>
-    <a href="/auth/discord/index.html" data-i18n="nav_discordlogin" id="discordLoginBtn">Log In via Discord</a>
   </nav>
   <div id="langSwitch">
     <button data-lang="en">EN</button>
@@ -48,9 +78,14 @@
       <label for="regSsUrl" data-i18n="reg_label_ss">ScoreSaber profile URL:</label>
       <input type="url" id="regSsUrl" placeholder="https://scoresaber.com/u/76561199210804681" required>
 
-      <button type="submit" data-i18n="reg_button">Generate entry</button>
+      <button type="submit" data-i18n="reg_button">Register on GorillaSaber!</button>
     </form>
-
+    <hr><small data-i18b="reg_or">or</small><hr>
+    <div id="authBox">
+  <a id="discordLoginBtn" href="#">Увійти через Discord</a>
+  <button id="logoutBtn" style="display:none;">Вийти</button>
+  <div id="meBox" style="margin-top:10px;"></div>
+</div>
     <div id="regStatus" style="margin-top:10px;"></div>
 
     <div id="regResult" class="card" style="margin-top:12px; display:none;">
