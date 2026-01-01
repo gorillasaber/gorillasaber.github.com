@@ -9,37 +9,6 @@
   import { startDiscordLogin } from "/js/login.js";
   document.getElementById("discordLoginBtn").addEventListener("click", startDiscordLogin);
   </script>
-  <script>
-  const DISCORD_OAUTH_URL = "https://discord.com/oauth2/authorize?client_id=1455325991449657556&response_type=code&redirect_uri=https%3A%2F%2Fgorillasaber.github.io%2Fauth%2Fdiscord%2Fcallback&scope=identify+email";
-
-  const loginBtn = document.getElementById("discordLoginBtn");
-  const logoutBtn = document.getElementById("logoutBtn");
-  const meBox = document.getElementById("meBox");
-
-  function render() {
-    const meRaw = localStorage.getItem("discord_me");
-    if (!meRaw) {
-      loginBtn.style.display = "";
-      logoutBtn.style.display = "none";
-      meBox.textContent = "Не залогінений";
-      loginBtn.href = DISCORD_OAUTH_URL;
-      return;
-    }
-
-    const me = JSON.parse(meRaw);
-    loginBtn.style.display = "none";
-    logoutBtn.style.display = "";
-    meBox.textContent = `Залогінений як: ${me.username}#${me.discriminator} (id: ${me.id})`;
-  }
-
-  logoutBtn.addEventListener("click", () => {
-    localStorage.removeItem("discord_me");
-    localStorage.removeItem("discord_token");
-    render();
-  });
-
-  render();
-</script>
 </head>
 <body>
 <canvas id="snowfall-element"></canvas>
@@ -86,6 +55,37 @@
   <button id="logoutBtn" style="display:none;">Вийти</button>
   <div id="meBox" style="margin-top:10px;"></div>
 </div>
+<script>
+  const DISCORD_OAUTH_URL = "https://discord.com/oauth2/authorize?client_id=1455325991449657556&response_type=code&redirect_uri=https%3A%2F%2Fgorillasaber.github.io%2Fauth%2Fdiscord%2Fcallback&scope=identify+email";
+
+  const loginBtn = document.getElementById("discordLoginBtn");
+  const logoutBtn = document.getElementById("logoutBtn");
+  const meBox = document.getElementById("meBox");
+
+  function render() {
+    const meRaw = localStorage.getItem("discord_me");
+    if (!meRaw) {
+      loginBtn.style.display = "";
+      logoutBtn.style.display = "none";
+      meBox.textContent = "Не залогінений";
+      loginBtn.href = DISCORD_OAUTH_URL;
+      return;
+    }
+
+    const me = JSON.parse(meRaw);
+    loginBtn.style.display = "none";
+    logoutBtn.style.display = "";
+    meBox.textContent = `Залогінений як: ${me.username}#${me.discriminator} (id: ${me.id})`;
+  }
+
+  logoutBtn.addEventListener("click", () => {
+    localStorage.removeItem("discord_me");
+    localStorage.removeItem("discord_token");
+    render();
+  });
+
+  render();
+</script>
     <div id="regStatus" style="margin-top:10px;"></div>
 
     <div id="regResult" class="card" style="margin-top:12px; display:none;">
