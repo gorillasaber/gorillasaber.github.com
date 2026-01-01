@@ -1,4 +1,4 @@
-const PROXY = "https://gs-proxy.partymonkevrgt.workers.dev";
+const PROXY = "https://gs-proxy.gorillasaber.partymonkevrgt.workers.dev";
 
 function proxyFetch(targetUrl) {
   const encoded = encodeURIComponent(targetUrl);
