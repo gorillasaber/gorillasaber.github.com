@@ -3,10 +3,9 @@ const loginBtn = document.getElementById("discordLoginBtn");
 
 if (loginBtn) {
   if (me) {
-    loginBtn.textContent = me.username;
-    loginBtn.href = "#";
+    loginBtn.style.display = "none"; // ← ховаємо кнопку
     loginBtn.insertAdjacentHTML("afterend",
-      `<a href="#" id="logoutBtn" style="color:#e57373;">Вийти</a>`
+      `<a href="#" id="logoutBtn" style="color:#e57373;">Вийти (${me.username})</a>`
     );
     document.getElementById("logoutBtn").addEventListener("click", () => {
       localStorage.removeItem("discord_me");
