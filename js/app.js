@@ -18,7 +18,7 @@ const translations = {
     nav_register: "Register",
     nav_discordlogin: "Log In via Discord",
 
-    footer_text: "Gorilla Saber is a fan project • 2026 • All rights is not reserved(",
+    footer_text: 'Gorilla Saber is a fan project • 2026 • Under <a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache 2.0 License</a>',
 
     home_h2_title: "Welcome to Gorilla Saber",
     home_h2_404: "Oops! There is no page like this one(",
@@ -97,7 +97,7 @@ const translations = {
     nav_register: "Реєстрація",
     nav_discordlogin: "Увійти через Discord",
 
-    footer_text: "Gorilla Saber фан-проєкт • 2026 • Усі права не захищені(",
+    footer_text: 'Gorilla Saber фан-проєкт • 2026 • Під  <a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache 2.0 Ліцензією</a>',
 
     home_h2_title: "Ласкаво просимо до Gorilla Saber",
     home_h2_404: "Упс! Таких сторінок як цієї немає(",
@@ -432,16 +432,4 @@ if (registerForm) {
       regResult.style.display = "none";
     }
   });
-}
-const rankedScores = blScores.data.filter(s => {
-  const entry = rankedData.find(x => x.hash.toLowerCase() === s.leaderboard.songHash.toLowerCase());
-  if (!entry) return false;
-  s.weight = entry.sppWeight || 1.0;
-  return true;
-});
-
-let blPP = 0;
-if (rankedScores.length > 0) {
-  const total = rankedScores.reduce((a, s) => a + s.pp * s.weight, 0);
-  blPP = total / rankedScores.length;
 }
