@@ -1,3 +1,8 @@
+const PROXY = "https://gorillasaber.partymonkevrgt.workers.dev";
+function proxyFetch(targetUrl) {
+  return fetch(`${PROXY}?url=${encodeURIComponent(targetUrl)}`);
+}
+
 const translations = {
   en: {
     site_title: "Gorilla Saber 🦍",
@@ -47,6 +52,9 @@ const translations = {
     lb_next: "Next",
     lb_page: "Page",
     lb_of: "of",
+    register_loginviadiscord: "Log in via Discord",
+    register_loggedin: "Logged in as ",
+    logout: "Logout",
 
     rk_title: "Gorilla Saber – Ranked Maps",
     rk_header: "Gorilla Saber – Ranked Maps",
@@ -125,6 +133,9 @@ const translations = {
     lb_next: "Далі",
     lb_page: "Сторінка",
     lb_of: "з",
+    register_loginviadiscord: "Увійти через Discord",
+    register_loggedin: "Увійдено як ",
+    logout: "Вийти",
 
     rk_title: "Gorilla Saber – Ранкнуті мапи",
     rk_header: "Gorilla Saber – Ранкнуті мапи",
@@ -206,7 +217,7 @@ function extractScoreSaberId(url) {
 
 async function fetchBLpp(blId) {
   const url = `${API_BL}/player/${blId}`;
-  const res = await fetch(url);
+  const res = await proxyFetch(url);
   if (!res.ok) throw new Error("BL API error");
   const data = await res.json();
   return data.pp ?? data.rankPp ?? 0;
@@ -214,7 +225,7 @@ async function fetchBLpp(blId) {
 
 async function fetchSSpp(ssId) {
   const url = `${API_SS}/player/${ssId}/full`;
-  const res = await fetch(url);
+  const res = await proxyFetch(url);
   if (!res.ok) throw new Error("SS API error");
   const data = await res.json();
   return data.pp ?? data.playerInfo?.pp ?? 0;

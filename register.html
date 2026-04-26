@@ -45,8 +45,8 @@
       <button type="submit" data-i18n="reg_button">Register on GorillaSaber!</button>
     </form>
     <div id="authBox">
-  <a id="discordLoginBtn" href="#">Увійти через Discord</a>
-  <button id="logoutBtn" style="display:none;">Вийти</button>
+  <a id="discordLoginBtn" href="#" data-i18n="register_loginviadiscord">Log in via Discord</a>
+  <button id="logoutBtn" style="display:none;" data-i18n="logout">Logout</button>
   <div id="meBox" style="margin-top:10px;"></div>
 </div>
 <script>
@@ -61,7 +61,7 @@
     if (!meRaw) {
       loginBtn.style.display = "";
       logoutBtn.style.display = "none";
-      meBox.textContent = "Не залогінений";
+      meBox.textContent = "Not logged in";
       loginBtn.href = DISCORD_OAUTH_URL;
       return;
     }
@@ -69,7 +69,7 @@
     const me = JSON.parse(meRaw);
     loginBtn.style.display = "none";
     logoutBtn.style.display = "";
-    meBox.textContent = `Залогінений як: ${me.username}#${me.discriminator} (id: ${me.id})`;
+    meBox.textContent = `Logged in as: ${me.username}#${me.discriminator} (id: ${me.id})`;
   }
 
   logoutBtn.addEventListener("click", () => {
