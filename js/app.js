@@ -1,9 +1,3 @@
-const PROXY = "https://gorillasaber.partymonkevrgt.workers.dev";
-
-function proxyFetch(targetUrl) {
-  const encoded = encodeURIComponent(targetUrl);
-  return fetch(`${PROXY}?url=${encoded}`);
-}
 const translations = {
   en: {
     site_title: "Gorilla Saber 🦍",
@@ -175,7 +169,7 @@ function applyTranslations() {
   nodes.forEach(el => {
     const key = el.getAttribute("data-i18n");
     const text = t(key);
-    if (text != null) el.textContent = text;
+    if (text != null) el.innerHTML = text;
   });
 }
 
@@ -212,7 +206,7 @@ function extractScoreSaberId(url) {
 
 async function fetchBLpp(blId) {
   const url = `${API_BL}/player/${blId}`;
-  const res = await proxyFetch(url);
+  const res = await fetch(url);
   if (!res.ok) throw new Error("BL API error");
   const data = await res.json();
   return data.pp ?? data.rankPp ?? 0;
@@ -220,7 +214,7 @@ async function fetchBLpp(blId) {
 
 async function fetchSSpp(ssId) {
   const url = `${API_SS}/player/${ssId}/full`;
-  const res = await proxyFetch(url);
+  const res = await fetch(url);
   if (!res.ok) throw new Error("SS API error");
   const data = await res.json();
   return data.pp ?? data.playerInfo?.pp ?? 0;

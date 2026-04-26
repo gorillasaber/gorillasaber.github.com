@@ -44,14 +44,14 @@
 
       <button type="submit" data-i18n="reg_button">Register on GorillaSaber!</button>
     </form>
-    ::before<small data-i18b="reg_or">or</small>::after
+    <small data-i18n="reg_or">or</small>
     <div id="authBox">
   <a id="discordLoginBtn" href="#">Увійти через Discord</a>
   <button id="logoutBtn" style="display:none;">Вийти</button>
   <div id="meBox" style="margin-top:10px;"></div>
 </div>
 <script>
-  const DISCORD_OAUTH_URL = "https://discord.com/oauth2/authorize?client_id=1455325991449657556&response_type=code&redirect_uri=https%3A%2F%2Fgorillasaber.github.io%2Fauth%2Fdiscord%2Fcallback&scope=identify+email";
+  const DISCORD_OAUTH_URL = "https://discord.com/oauth2/authorize?client_id=1498006152888455248&response_type=code&redirect_uri=https%3A%2F%2Fgorillasaber.github.io%2Fauth%2Fdiscord%2Fcallback&scope=identify+email";
 
   const loginBtn = document.getElementById("discordLoginBtn");
   const logoutBtn = document.getElementById("logoutBtn");
