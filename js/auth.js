@@ -1,5 +1,5 @@
 const STORAGE_KEY = "gs_session";
-export const WORKER_ORIGIN = "https://gs-proxy.gorillasaber.partymonkervgt.workers.dev";
+export const WORKER_ORIGIN = "https://gs-proxy.gorillasaber.partymonkevrgt.workers.dev";
 function parseJwtPayload(token) {
   const parts = token.split(".");
   if (parts.length !== 3) return null;
