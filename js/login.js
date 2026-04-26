@@ -6,7 +6,7 @@ function randomState(len = 24) {
 }
 
 export function startDiscordLogin() {
-  const clientId = "1455325991449657556";
+  const clientId = "1498006152888455248";
   const redirectUri = encodeURIComponent("https://gorillasaber.github.io/auth/discord/callback");
   const scope = encodeURIComponent("identify email");
   const state = randomState();
