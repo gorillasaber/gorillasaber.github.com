@@ -18,15 +18,14 @@ const translations = {
     nav_register: "Register",
     nav_discordlogin: "Log In via Discord",
 
-    footer_text: 'Gorilla Saber is a fan project • 2026 • Under <a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache 2.0 License</a>',
+    footer_text: `Gorilla Saber is a fan project • 2026 • Under <a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache 2.0 License</a>`,
 
     home_h2_title: "Welcome to Gorilla Saber",
     home_h2_404: "Oops! There is no page like this one(",
-    home_intro: "Fan-made ranking for Beat Saber. Shiny PP, custom ranked maps and global SPP leaderboard.",
+    home_intro: "Leaderboard for Beat Saber.",
     home_news_title: "News",
     home_news_latest: "Latest info:",
-    home_news_latest_text: `v0.6.5 not ready at all – making register thing)
-                            HAPPY NEW YEAR!!!`,
+    home_news_latest_text: "v0.6.5 not ready at all – making register thing)",
     home_downloads_title: "Downloads",
     home_downloads_desc: "When PC / Quest mods are ready, download links will appear here.",
     home_download_pc: "Download PC Mod (soon)",
@@ -97,15 +96,14 @@ const translations = {
     nav_register: "Реєстрація",
     nav_discordlogin: "Увійти через Discord",
 
-    footer_text: 'Gorilla Saber фан-проєкт • 2026 • Під  <a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache 2.0 Ліцензією</a>',
+    footer_text: `Gorilla Saber фан-проєкт • 2026 • Під <a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache 2.0 Ліцензією</a>`,
 
     home_h2_title: "Ласкаво просимо до Gorilla Saber",
     home_h2_404: "Упс! Таких сторінок як цієї немає(",
-    home_intro: "Фанатський рейтинг для Beat Saber. Shiny PP, свій пул ranked карт та глобальний SPP рейтинг.",
+    home_intro: "Лідерборд для Beat Saber.",
     home_news_title: "Новини",
     home_news_latest: "Остання інфа:",
-    home_news_latest_text: `v0.6.5 все ще не готове – робим реєстрацію)
-                            ЩАСЛИВОГО НОВОГО РОКУ!!!`,
+    home_news_latest_text: "v0.6.5 все ще не готове – робим реєстрацію)",
     home_downloads_title: "Завантаження",
     home_downloads_desc: "Коли PC / Quest моди будуть готові, тут зʼявляться посилання.",
     home_download_pc: "Завантажити PC мод (скоро)",
