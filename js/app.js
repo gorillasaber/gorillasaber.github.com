@@ -248,8 +248,7 @@ async function runSppBot(blUrl, ssUrl) {
   const blScoresRes = await proxyFetch(`https://api.beatleader.com/player/${blId}/scores?sortBy=pp&page=1&count=100`);
   const blScores = await blScoresRes.json();
 
-  const rankedScores = blScores.data.filter(s => rankedHashes.includes(s.leaderboard.songHash.toLowerCase()));
-  console.log(blScores.data[0])
+  const rankedScores = blScores.data.filter(s => rankedHashes.includes(s.leaderboard.song.hash.toLowerCase()));
 
   let blPP = 0;
   if (rankedScores.length > 0) {
