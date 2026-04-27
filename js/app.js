@@ -347,13 +347,13 @@ if (playersTableBody) {
       const tr = document.createElement("tr");
       const globalIndex = start + idx + 1;
       tr.innerHTML = `
-        <td>${globalIndex}</td>
-        <td>${p.name}</td>
-        <td>${p.country || ""}</td>
-        <td>${p.spp.toFixed(2)}</td>
-        <td>${p.bl_url ? '<a href="' + p.bl_url + '" target="_blank"><img src="https://cdn.bsky.app/img/avatar/plain/did:plc:p5svhh3fvahuxkmytlcwyjze/bafkreigem5artk34rh24fhci7joogn2mmhqq2qm2w3yelinncb4cba2qje"></a>' : ""}</td>
-        <td>${p.ss_url ? '<a href="' + p.ss_url + '" target="_blank"><img src="https://scoresaber.com/images/logo.svg"></a>' : ""}</td>
-      `;
+  <td>${globalIndex}</td>
+  <td>${p.name}</td>
+  <td>${p.country || ""}</td>
+  <td>${p.spp.toFixed(2)}</td>
+  <td>${p.bl_url ? '<a href="' + p.bl_url + '" target="_blank"><img src="https://cdn.bsky.app/img/avatar/plain/did:plc:p5svhh3fvahuxkmytlcwyjze/bafkreigem5artk34rh24fhci7joogn2mmhqq2qm2w3yelinncb4cba2qje" style="width:24px;height:24px;border-radius:4px;"></a>' : ""}</td>
+  <td>${p.ss_url ? '<a href="' + p.ss_url + '" target="_blank"><img src="https://scoresaber.com/images/logo.svg" style="width:24px;height:24px;"></a>' : ""}</td>
+`;
       playersTableBody.appendChild(tr);
     });
 
