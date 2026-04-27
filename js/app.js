@@ -351,8 +351,8 @@ if (playersTableBody) {
         <td>${p.name}</td>
         <td>${p.country || ""}</td>
         <td>${p.spp.toFixed(2)}</td>
-        <td>${p.blUrl ? `<a href="${p.blUrl}" target="_blank">BL</a>` : ""}</td>
-        <td>${p.ssUrl ? `<a href="${p.ssUrl}" target="_blank">SS</a>` : ""}</td>
+        <td>${p.bl_url ? '<a href="' + p.bl_url + '" target="_blank">BL</a>' : ""}</td>
+        <td>${p.ss_url ? '<a href="' + p.ss_url + '" target="_blank">SS</a>' : ""}</td>
       `;
       playersTableBody.appendChild(tr);
     });
