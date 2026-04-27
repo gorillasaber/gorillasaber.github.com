@@ -425,10 +425,27 @@ if (registerForm) {
         ssUrl
       };
 
-      const jsonStr = JSON.stringify(playerObj, null, 2);
-      regOutput.value = jsonStr;
-      regResult.style.display = "block";
-      regStatus.textContent = "";
+const me = JSON.parse(localStorage.getItem("discord_me") || "null");
+
+const res = await fetch(`${PROXY}/player/register`, {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    discord_id: me?.id || "unknown",
+    name: playerObj.name,
+    country: playerObj.country,
+    spp: playerObj.spp,
+    bl_url: playerObj.blUrl,
+    ss_url: playerObj.ssUrl
+  })
+});
+
+const data = await res.json();
+if (data.ok) {
+  regStatus.textContent = "Зареєстровано! 🎉";
+} else {
+  regStatus.textContent = "Помилка: " + (data.error || "невідома");
+}
     } catch (err) {
       regStatus.textContent =
         t("reg_status_error_prefix") + err.message;
