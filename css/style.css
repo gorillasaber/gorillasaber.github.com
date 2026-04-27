@@ -175,11 +175,6 @@ footer {
   border-color: #9be37f;
 }
 
-th:nth-child(5), td:nth-child(5),
-th:nth-child(6), td:nth-child(6) {
-  width: 60px;
-  text-align: center;
-}
 td a {
   display: inline-block;
   padding: 2px 8px;
@@ -189,4 +184,19 @@ td a {
   color: #9be37f;
   text-decoration: none;
   font-size: 13px;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+table {
+  table-layout: fixed;
+}
+
+th:nth-child(5), td:nth-child(5),
+th:nth-child(6), td:nth-child(6) {
+  width: 60px;
+  text-align: center;
+  overflow: hidden;
 }
