@@ -365,7 +365,7 @@ if (playersTableBody) {
     }
   }
 
-  fetch("data/players.json")
+  fetch(`${PROXY}/players`)
     .then(r => r.json())
     .then(list => {
       players = list.sort((a, b) => b.spp - a.spp);
