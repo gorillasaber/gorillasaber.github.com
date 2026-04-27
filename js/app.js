@@ -351,8 +351,8 @@ if (playersTableBody) {
         <td>${p.name}</td>
         <td>${p.country || ""}</td>
         <td>${p.spp.toFixed(2)}</td>
-        <td>${p.bl_url ? '<a href="' + p.bl_url + '" target="_blank">BL</a>' : ""}</td>
-        <td>${p.ss_url ? '<a href="' + p.ss_url + '" target="_blank">SS</a>' : ""}</td>
+        <td>${p.bl_url ? '<a href="' + p.bl_url + '" target="_blank"><img src="https://cdn.bsky.app/img/avatar/plain/did:plc:p5svhh3fvahuxkmytlcwyjze/bafkreigem5artk34rh24fhci7joogn2mmhqq2qm2w3yelinncb4cba2qje"></a>' : ""}</td>
+        <td>${p.ss_url ? '<a href="' + p.ss_url + '" target="_blank"><img src="https://scoresaber.com/images/logo.svg"></a>' : ""}</td>
       `;
       playersTableBody.appendChild(tr);
     });
@@ -442,7 +442,7 @@ const res = await fetch(`${PROXY}/player/register`, {
 
 const data = await res.json();
 if (data.ok) {
-  regStatus.textContent = "Зареєстровано! 🎉";
+  regStatus.textContent = "Зареєстровано!\nRegistrated!";
 } else {
   regStatus.textContent = "Помилка: " + (data.error || "невідома");
 }
