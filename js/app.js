@@ -245,7 +245,7 @@ async function runSppBot(blUrl, ssUrl) {
   const rankedData = await fetch("data/ranked-maps.json").then(r => r.json());
   const rankedHashes = rankedData.map(x => x.hash.toLowerCase());
 
-  const blScoresRes = await proxyFetch(`https://api.beatleader.com/player/${blId}/scores?sortBy=pp&page=1&count=1000`);
+  const blScoresRes = await proxyFetch(`https://api.beatleader.com/player/${blId}/scores?sortBy=pp&page=1&count=100`);
   const blScores = await blScoresRes.json();
 
   const rankedScores = blScores.data.filter(s => rankedHashes.includes(s.leaderboard.songHash.toLowerCase()));
