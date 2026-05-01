@@ -17,7 +17,7 @@ const translations = {
     nav_register: "Register",
     nav_discordlogin: "Log In via Discord",
 
-    footer_text: `Gorilla Saber is a fan project • 2026 • Under <a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache 2.0 License</a>`,
+    footer_text: `Gorilla Saber is a fan project • 2026 • Under <a href="https://www.gnu.org/licenses/gpl-3.0.html" target="_blank">GNU General Public License v3.0</a>`,
 
     home_h2_title: "Welcome to Gorilla Saber",
     home_h2_404: "Oops! There is no page like this one(",
@@ -98,7 +98,7 @@ const translations = {
     nav_register: "Реєстрація",
     nav_discordlogin: "Увійти через Discord",
 
-    footer_text: `Gorilla Saber фан-проєкт • 2026 • Під <a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache 2.0 Ліцензією</a>`,
+    footer_text: `Gorilla Saber фан-проєкт • 2026 • Під <a href="https://www.gnu.org/licenses/gpl-3.0.html" target="_blank">GNU General Public Ліцензією v3.0</a>`,
 
     home_h2_title: "Ласкаво просимо до Gorilla Saber",
     home_h2_404: "Упс! Таких сторінок як цієї немає(",
